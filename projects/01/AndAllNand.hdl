@@ -4,16 +4,16 @@
 // File name: projects/01/And.hdl
 
 /**
- * And gate:
+ * AndAllNand gate:
  * out = 1 if (a == 1 and b == 1)
  *       0 otherwise
  */
 
-CHIP And {
+CHIP AndAllNand {
     IN a, b;
     OUT out;
 
     PARTS:
     Nand (a=a, b=b, out=NandOut);
-    Not (in=NandOut, out=out);
+    Nand (a=NandOut, b=NandOut, out=out);
 }
