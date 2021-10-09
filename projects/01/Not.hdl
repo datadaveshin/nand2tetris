@@ -13,4 +13,57 @@ CHIP Not {
     OUT out;
 
     PARTS:
+    Nand (a=in, b=in, out=out);
 }
+
+/**
+Comments:
+# NOT
+if in==0 then out=1, else out=0
+
+## Derive a formula for above for Not
+- From table 1.2 If X then Y means: `xbar + y`, so
+- `xbar + y`, then if we have 2 inputs, we must make y into x:
+- `xbar + x`, which means:
+- `Not(X) Or X`
+
+## Derive a formula from Nand that may give above from 2 inputs
+Nand is `(x and y)bar`
+- `Not(X And Y)`, so in this case where X and Y must be equal it is:
+- `Not(NotX And NotX)`, by de Morgan law:
+- `Not(NotX) Or Not(NotX)`, by double negation of the second term:
+- `Not(X) Or X`, and that is equivalent to what we have above
+
+## Truth table to test
+Let's just make a double X truth table for Nand, and for grins, see what other simple gates would work:
+
+| X | X | NAND | NOR | OR | AND | XOR |
+| - | - | ---- | --- | -- | --- | --- |
+| 0 | 0 | 1    | 1   | 0  | 0   | 0   |
+| 1 | 1 | 0    | 0   | 1  | 1   | 0   |
+
+## Try to also synthesize what the formula would be
+| X | X | Want |
+| - | - | ---- |
+| 0 | 0 | 1    |
+| 1 | 1 | 0    |
+
+### Attempt 1
+- Solving for 1's we'd have: `Not(X) And Not(X)`, so mark that down
+- `Not(X) And Not(X)`, by Idempotent law we have:
+- `Not(X)`, lol, that doesn't help us get to Nand, that's the Not definition
+
+### Attempt 2
+- So start over:
+- `Not(X) And Not(X)`, but actually, from the table above, we could start with:
+- `Not(X) Or Not(X)`, and then by de Morgan's law get back to Nand:
+- `Not(X And Y)`, which is
+- `(x and y)bar`, the definition of Nand in this case, with double inputs
+- Done
+
+### Extra credit do it for Nor
+- Go back to `Not(X) And Not(X)` and start over, so:
+- `Not(X) And Not(X)`, then de Morgan's law:
+- `Not(X Or Y)`, which is Nor:
+- `(X or Y)bar`
+*/

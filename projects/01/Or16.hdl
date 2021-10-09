@@ -13,4 +13,21 @@ CHIP Or16 {
     OUT out[16];
 
     PARTS:
+    Or (a=a[0], b=b[0], out=out[0]);
+    Or (a=a[1], a=a[1], out=out[1]);
+    Or (a=a[2], a=a[2], out=out[2]);
+    Or (a=a[3], a=a[3], out=out[3]);
+    Or (a=a[4], a=a[4], out=out[4]);
+    Or (a=a[5], a=a[5], out=out[5]);
+    Or (a=a[6], a=a[6], out=out[6]);
+    Or (a=a[7], a=a[7], out=out[7]);
+    Or (a=a[8], a=a[8], out=out[8]);
+    Or (a=a[9], a=a[9], out=out[9]);
+    Or (a=a[10], a=a[10], out=out[10]);
+    Or (a=a[11], a=a[11], out=out[11]);
+    Or (a=a[12], a=a[12], out=out[12]);
+    Or (a=a[13], a=a[13], out=out[13]);
+    Or (a=a[14], a=a[14], out=out[14]);
+    Or (a=a[15], a=a[15], out=out[15]);
+    Or (a=a[16], a=a[16], out=out[16]);
 }
