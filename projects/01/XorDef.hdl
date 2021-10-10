@@ -16,6 +16,6 @@ CHIP XorDef {
     Not(in=a,out=NotAOut);
     Not(in=b,out=NotBOut);
     And(a=NotAOut, b=b, out=AndOutA);
-    And(b=NoBAOut, a=a, out=AndOutB);
+    And(b=NotBOut, a=a, out=AndOutB);
     Or(a=AndOutA, b=AndOutB, out=out);
 }

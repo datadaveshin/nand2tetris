@@ -14,5 +14,26 @@ CHIP DMux {
     OUT a, b;
 
     PARTS:
-    // Put your code here:
+    Not(in=sel, out=notSel);
+
+    And(a=notSel, b=in, out=a);
+    And(a=sel, b=in, out=b);
 }
+
+
+/**
+Old soln that fails:
+Or(a=sel, b=a, out=or1out);
+Or(a=sel, b=b, out=or2out);
+
+Not(in=sel, out=not1out);
+Or(a=not1out, b=a, out=or3out);
+
+Not(in=sel, out=not2out);
+Or(a=not2out, b=b, out=or4out);
+
+And(a=or1out, b=or2out, out=and1out);
+And(a=or3out, b=or4out, out=and2out);
+
+And(a=and1out, b=and2out, out=out);
+*/
