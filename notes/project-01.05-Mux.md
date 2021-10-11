@@ -8,7 +8,7 @@ out = a if sel == 0
 
 ## Truth table synthesis:
 | A | B | S | Out | Terms |
-| - | - | - | - ||
+| - | - | - | - | - |
 | 0 | 0 | 0 | 0 ||
 | 1 | 0 | 0 | 1 | A and Not(S) => A |
 | 0 | 0 | 1 | 0 ||
