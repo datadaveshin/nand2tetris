@@ -40,7 +40,7 @@ All seem basically equivalent, so built:
 
 ## From the Chip definition
 - Not(X equivalent Y), Expand equivalent expression, where equivalence is:
-- 
+
 | Func  | Var |   |   |   |  |
 | ----- | --- | - | - | - | - |
 |  | X | 0 | 0 | 1 | 1 |
