@@ -6,7 +6,7 @@
 |  |  |  |  |  |  |
 | Constant 0 | 0 | 0 | 0 | 0 | 0 |
 | And | X And Y | 0 | 0 | 0 | 1 |
-| x And Not y | Not(Y) | 0 | 1 | 0 | 0 |
+| x And Not y | Not(Y) | 0 | 0 | 1 | 0 |
 | x | X | 0 | 0 | 1 | 1 |
 | Not x and y | Not(X) And Y | 0 | 1 | 0 | 0 |
 | y | Y | 0 | 1 | 0 | 1 |
