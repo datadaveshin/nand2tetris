@@ -10,9 +10,9 @@ out = a if sel == 0
 | A | B | S | Out | Terms |
 | - | - | - | - | - |
 | 0 | 0 | 0 | 0 ||
-| 1 | 0 | 0 | 1 | A and Not(S) => A |
+| 1 | 0 | 0 | 1 | A and Not(S) => Out |
 | 0 | 0 | 1 | 0 ||
-| 0 | 1 | 1 | 1 | B and S => B |
+| 0 | 1 | 1 | 1 | B and S => Out |
 
 - Boils down to:
   - If A and Not(S) then out
