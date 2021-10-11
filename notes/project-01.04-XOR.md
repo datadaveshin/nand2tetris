@@ -40,17 +40,19 @@ All seem basically equivalent, so built:
 
 ## From the Chip definition
 - Not(X equivalent Y), Expand equivalent expression, where equivalence is:
+- 
 | Func  | Var |   |   |   |  |
-| ----- | --- | - | - | - |  |
+| ----- | --- | - | - | - | - |
 |  | X | 0 | 0 | 1 | 1 |
 |  | Y | 0 | 1 | 0 | 1 |
 |  |  |  |  |  |  |
 | Equivalence | X And Y Or Not(X) And Not(Y) | 1 | 0 | 0 | 1 |
-- Not(X And Y Or Not(X) And Not(Y)), De Morgan right side:
-- Not([X And Y] Or [Not(X Or Y)]), De Morgan around "Or":
-- Not[X And Y] And Not[Not(X or Y]), Double negate right:
-- Not[X And Y] And (X Or Y), Nand the left:
-- Nand(X,Y) And (X Or Y)
+
+- `Not(X And Y Or Not(X) And Not(Y))`, De Morgan right side:
+- `Not([X And Y] Or [Not(X Or Y)])`, De Morgan around "Or":
+- `Not[X And Y] And Not[Not(X or Y])`, Double negate right:
+- `Not[X And Y] And (X Or Y)`, Nand the left:
+- `Nand(X,Y) And (X Or Y)`
 - **Done** - This one is saved as `Xor.hdl`
 
 ## Image
