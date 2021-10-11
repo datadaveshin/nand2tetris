@@ -11,7 +11,7 @@ Demultiplexor:
 
 ## Truth table synthesis:
 | S | In | A | B | Terms |
-| - | -  | - | - ||
+| - | -  | - | - | - |
 | 0 | 0  | 0 | 0 ||
 | 0 | 1  | 1 | 0 | NotS and In => A |
 | 1 | 0  | 0 | 0 ||
