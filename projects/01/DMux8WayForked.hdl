@@ -1,7 +1,7 @@
 // This file is part of www.nand2tetris.org
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
-// File name: projects/01/DMux8Way.hdl
+// File name: projects/01/DMux8WayForked.hdl
 
 /**
  * 8-way demultiplexor:
@@ -11,12 +11,12 @@
  *                            {0, 0, 0, 0, 0, 0, 0, in} if sel == 111
  */
 
-CHIP DMux8Way {
+CHIP DMux8WayForked {
     IN in, sel[3];
     OUT a, b, c, d, e, f, g, h;
 
     PARTS:
     DMux(in=in, sel=sel[2], a=DmuxOutA, b=DmuxOutB);
-    DMux4Way(in=DmuxOutA, sel[0]=sel[0], sel[1]=sel[1], a=a, b=b, c=c, d=d);
-    DMux4Way(in=DmuxOutB, sel[0]=sel[0], sel[1]=sel[1], a=e, b=f, c=g, d=h);
+    DMux4WayForked(in=DmuxOutA, sel[0]=sel[0], sel[1]=sel[1], a=a, b=b, c=c, d=d);
+    DMux4WayForked(in=DmuxOutB, sel[0]=sel[0], sel[1]=sel[1], a=e, b=f, c=g, d=h);
 }
