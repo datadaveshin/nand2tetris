@@ -27,7 +27,7 @@ out = a if sel == 00
 
 !["Mux4Way16 Gate"](../img/project-01.9-Mux4Way16-b.png)
 
-##  Mux4Way16 Definition:
+##  Mux8Way16 Definition:
 ```
  8-way 16-bit multiplexor:
  out = a if sel == 000
