@@ -19,6 +19,9 @@ Here we want to add two 16-bit numbers.
 
 !["Add8"](../img/project-02.3-Add8.png )
 
+- An example with various inputs:
+
+!["Add8 examples"](../img/project-02.3-Add8-examples.png )
 
 # Incrementer Definition
 ```
