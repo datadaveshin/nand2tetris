@@ -2,5 +2,5 @@
 **/.DS_Store
 
 # Ignore Hardware Simulator Files
-**/Hardware Simulator.dat
+**/Hardware*
 *.out
