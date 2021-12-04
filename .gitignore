@@ -4,3 +4,6 @@
 # Ignore Hardware Simulator Files
 **/Hardware*
 *.out
+
+# venv
+venv/
