@@ -30,7 +30,8 @@ def get_filenames():
                 file_list.append(fname)
     return file_list
 
-def get_parts(fname : str):
+
+def get_parts(fname: str):
     """Returns a dict that contains the parts within a chip .hdl file"""
     parts_dict = {}
     with open(fname, 'r', encoding="utf8") as lines:
@@ -51,12 +52,14 @@ def get_parts(fname : str):
                     parts_dict[part] = 1
     return parts_dict
 
-def calculate_nand_chips(chip, nand_gates_per_chip):
+
+def calculate_nand_chips(chip: object, nand_gates_per_chip: dict):
     """Returns the total number of nand chips a Chip object would consume"""
     total_nand_chips = 0
     for part_name, part_count in chip.parts.items():
         total_nand_chips += nand_gates_per_chip[part_name] * part_count
     return total_nand_chips
+
 
 def main():
     """Outputs chip names, parts and number of nand gates used in projects directory"""
