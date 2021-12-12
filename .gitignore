@@ -1,9 +1,12 @@
 # Ignore Mac .DS_Store
 **/.DS_Store
 
-# Ignore Hardware Simulator Files
+# Ignore .out files
 **/Hardware*
 *.out
 
 # venv
 venv/
+
+# Ignore tools
+tools/
