@@ -12,3 +12,7 @@ In this course, we are provided with a [hardware simulator](https://www.nand2tet
 The book I'm using is the 2nd edition of "[The Elements of Computing Systems](https://mitpress.mit.edu/books/elements-computing-systems-second-edition)" by Nisan and Schocken.
 
 The tools (hardware simulators and the like) can be found at the [nand2tetris website](https://www.nand2tetris.org/).
+
+Here's an example diagram of thing we get to build. This is an Add8 Chip.
+
+!["Add8"](img/project-02.3-Add8.png )
