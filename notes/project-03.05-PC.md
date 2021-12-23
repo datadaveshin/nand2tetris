@@ -8,7 +8,7 @@ else                    out[t+1] = out[t]
 ```
 
 ## Discussion
-The PC chip is one that increments a 16-bit value, similar to Inc16. However, it has additional features, such as a reset setting the bits to zero (reset), the ability to reset to a specific value (load), or to continue emitting the previous value.
+The PC chip is one that increments a 16-bit value, similar to Inc16. However, it has additional features, such as a reset setting the bits to zero (reset), the ability to reset to a specific value (load), or to continue emitting the previous value. Appears that we will be using this to step through our machine language.
 
 ## Implementation
 There was multiple feedback for this one, so it was a little "bit" of a challenge:
