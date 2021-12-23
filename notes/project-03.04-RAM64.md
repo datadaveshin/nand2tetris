@@ -1,4 +1,5 @@
 # RAM64 Definition:
+Will be also discussing other higher order RAM chips here, but the definitions are similar, see .hdl files.
 ```
 Memory of 64 registers, each 16 bit-wide. Out holds the value
 stored at the memory location specified by address. If load==1, then
