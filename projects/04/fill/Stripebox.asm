@@ -1,17 +1,5 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/04/Fill.asm
-
-// Runs an infinite loop that listens to the keyboard input.
-// When a key is pressed (any key), the program blackens the screen,
-// i.e. writes "black" in every pixel;
-// the screen should remain fully black as long as the key is pressed.
-// When no key is pressed, the program clears the screen, i.e. writes
-// "white" in every pixel;
-// the screen should remain fully clear as long as no key is pressed.
-
-// Put your code here.
+// File name: projects/04/Fillsandbox4.asm
+// Method: Continually check the keyboard, and set state variable to white or stripes if pressed
 
 (START)
 // Set the index to the beginning of screen
@@ -26,9 +14,9 @@ D=M
 // Jump to set the state to white if KBD = 0
 @SET_STATE_WHITE
 D;JEQ
-// Else, set state to black and jump to the color screen loop
+// Else, set state to stripes and jump to the color screen loop
 @state
-M=-1
+M=D
 @COLOR_SCREEN_LOOP
 0;JMP
 // Set state to white and move on
