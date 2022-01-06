@@ -331,7 +331,7 @@ Hack RAM overview:
 | RAM | Function | Bits | LABEL |
 | -- | --- | --- |--- |
 | 0 | Data Memory | 16K | ... |
-| 16834 | Screen Memory Map | 8K | SCREEN |
+| 16384 | Screen Memory Map | 8K | SCREEN |
 | 24576 | Keyboard | 16 | KBD |
 
 ### Screen
