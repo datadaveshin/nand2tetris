@@ -63,7 +63,7 @@ def calculate_nand_chips(chip: object, nand_gates_per_chip: dict):
 
 def main():
     """Outputs chip names, parts and number of nand gates used in projects directory"""
-    nands_per_chip = {'Nand': 1, 'DFF': 2}
+    nands_per_chip = {'Nand': 1, 'DFF': 2, 'ARegister': 160, 'DRegister': 160, 'Keyboard': 160, 'Screen': 2411791}
     filenames = get_filenames()
     uncompleted_chips = []
     completed_chips = []
@@ -80,6 +80,7 @@ def main():
         frontier.put(chip)
 
     chips_with_nand_count = []
+    overall_nand_consumption = 0
     while not frontier.empty():
         current_chip = frontier.get()
         all_parts_present = True
@@ -89,15 +90,21 @@ def main():
         if all_parts_present:
             current_chip.num_nand_gates = calculate_nand_chips(current_chip, nands_per_chip)
             nands_per_chip[current_chip.name] = current_chip.num_nand_gates
+            overall_nand_consumption += current_chip.num_nand_gates
             chips_with_nand_count.append(current_chip)
         else:
             frontier.put(current_chip)
+            print(current_chip);
 
     for chip in uncompleted_chips:
         print(chip)
 
     for chip in chips_with_nand_count:
         print(chip)
+
+    print(f"Implementation uses {overall_nand_consumption} Nand chips\n")
+
+
 
 if __name__ == '__main__':
     main()
