@@ -27,10 +27,11 @@ CHIP Memory {
     OUT out[16];
 
     PARTS:
-    DMux4Way(in=true, sel=address[13..14], a=ramSel1, b=ramSel2, c=screenLoad);
-    And(a=ramSel1, b=load, out=And1out);
-    And(a=ramSel2, b=load, out=And2out);
+    DMux4Way(in=load, sel=address[13..14], a=ramSel1, b=ramSel2, c=screenLoad);
+    And(a=ramSel1, b=true, out=And1out);
+    And(a=ramSel2, b=true, out=And2out);
     Or(a=And1out, b=And2out, out=orOut);
+
     RAM16K(in=in, load=orOut, address=address[0..13], out=RAM16out);
     Screen(in=in, load=screenLoad, address=address[0..12], out=ScreenOut);
     Keyboard(out=KBDout);
