@@ -63,7 +63,13 @@ def calculate_nand_chips(chip: object, nand_gates_per_chip: dict):
 
 def main():
     """Outputs chip names, parts and number of nand gates used in projects directory"""
-    nands_per_chip = {'Nand': 1, 'DFF': 2, 'ARegister': 160, 'DRegister': 160, 'Keyboard': 160, 'Screen': 2411791}
+    nands_per_chip = {'Nand': 1,
+                      'DFF': 2,
+                      'ARegister': 160,
+                      'DRegister': 160,
+                      'Keyboard': 160,
+                      'Screen': 2411791,
+                      'ROM32K': 9647164}
     filenames = get_filenames()
     uncompleted_chips = []
     completed_chips = []
