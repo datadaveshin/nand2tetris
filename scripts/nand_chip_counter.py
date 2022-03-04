@@ -70,19 +70,15 @@ def main():
                       'Keyboard': 160,
                       'Screen': 2411791,
                       'ROM32K': 9647164}
+    frontier = Queue(maxsize = 50)
+
     filenames = get_filenames()
-    chip_set = []
     for name in filenames:
         parts = get_parts(name)
         chip = Chip(name, parts)
-        chip_set.append(chip)
-
-    frontier = Queue(maxsize = 50)
-    for chip in chip_set:
         frontier.put(chip)
 
     chips_with_count = []
-    overall_nand_consumption = 0
     while not frontier.empty():
         current_chip = frontier.get()
         all_parts_present = True
@@ -92,7 +88,6 @@ def main():
         if all_parts_present:
             current_chip.num_nand_gates = calculate_nand_chips(current_chip, nands_per_chip)
             nands_per_chip[current_chip.name] = current_chip.num_nand_gates
-            overall_nand_consumption += current_chip.num_nand_gates
             chips_with_count.append(current_chip)
         else:
             frontier.put(current_chip)
@@ -101,10 +96,6 @@ def main():
         if chip.num_nand_gates == 0:
             chip.num_nand_gates = "Incomplete"
         print(chip)
-
-    print(f"Implementation uses {overall_nand_consumption} Nand chips\n")
-
-
 
 if __name__ == '__main__':
     main()
