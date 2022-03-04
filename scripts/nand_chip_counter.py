@@ -60,23 +60,34 @@ def calculate_nand_chips(chip: object, nand_gates_per_chip: dict):
         total_nand_chips += nand_gates_per_chip[part_name] * part_count
     return total_nand_chips
 
+def add_built_ins_to_frontier(queue):
+    a_register = Chip('ARegister', {'Register': 1})
+    queue.put(a_register)
+    d_register = Chip('DRegister', {'Register': 1})
+    queue.put(d_register)
+    keyboard = Chip('Keyboard', {'Register': 1})
+    queue.put(keyboard)
+    screen = Chip('Screen', {'RAM4K': 2})
+    queue.put(screen)
+    rom32k = Chip('ROM32K', {'RAM16K': 2})
+    queue.put(rom32k)
 
-def main():
-    """Outputs chip names, parts and number of nand gates used in projects directory"""
-    nands_per_chip = {'Nand': 1,
-                      'DFF': 2,
-                      'ARegister': 160,
-                      'DRegister': 160,
-                      'Keyboard': 160,
-                      'Screen': 2411791,
-                      'ROM32K': 9647164}
-    frontier = Queue(maxsize = 50)
-
+def add_chip_set_to_frontier(queue):
     filenames = get_filenames()
     for name in filenames:
         parts = get_parts(name)
+        print(parts)
         chip = Chip(name, parts)
-        frontier.put(chip)
+        queue.put(chip)
+
+def main():
+    """Outputs chip names, parts and number of nand gates used in projects directory"""
+
+    nands_per_chip = {'Nand': 1, 'DFF': 2}
+
+    frontier = Queue(maxsize = 50)
+    add_built_ins_to_frontier(frontier)
+    add_chip_set_to_frontier(frontier)
 
     chips_with_count = []
     while not frontier.empty():
