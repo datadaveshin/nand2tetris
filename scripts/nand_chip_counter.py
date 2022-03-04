@@ -60,27 +60,36 @@ def calculate_nand_chips(chip: object, nand_gates_per_chip: dict):
         total_nand_chips += nand_gates_per_chip[part_name] * part_count
     return total_nand_chips
 
+def add_built_ins_to_frontier(queue):
+    a_register = Chip('ARegister', {'Register': 1})
+    queue.put(a_register)
+    d_register = Chip('DRegister', {'Register': 1})
+    queue.put(d_register)
+    keyboard = Chip('Keyboard', {'Register': 1})
+    queue.put(keyboard)
+    screen = Chip('Screen', {'RAM4K': 2})
+    queue.put(screen)
+    rom32k = Chip('ROM32K', {'RAM16K': 2})
+    queue.put(rom32k)
+
+def add_chip_set_to_frontier(queue):
+    filenames = get_filenames()
+    for name in filenames:
+        parts = get_parts(name)
+        print(parts)
+        chip = Chip(name, parts)
+        queue.put(chip)
 
 def main():
     """Outputs chip names, parts and number of nand gates used in projects directory"""
-    nands_per_chip = {'Nand': 1, 'DFF': 2, 'ARegister': 160, 'DRegister': 160, 'Keyboard': 160, 'Screen': 2411791}
-    filenames = get_filenames()
-    uncompleted_chips = []
-    completed_chips = []
-    for name in filenames:
-        parts = get_parts(name)
-        chip = Chip(name, parts)
-        if "//" in chip.parts:
-            uncompleted_chips.append(chip)
-        else:
-            completed_chips.append(chip)
+
+    nands_per_chip = {'Nand': 1, 'DFF': 2}
 
     frontier = Queue(maxsize = 50)
-    for chip in completed_chips:
-        frontier.put(chip)
+    add_built_ins_to_frontier(frontier)
+    add_chip_set_to_frontier(frontier)
 
-    chips_with_nand_count = []
-    overall_nand_consumption = 0
+    chips_with_count = []
     while not frontier.empty():
         current_chip = frontier.get()
         all_parts_present = True
@@ -90,21 +99,14 @@ def main():
         if all_parts_present:
             current_chip.num_nand_gates = calculate_nand_chips(current_chip, nands_per_chip)
             nands_per_chip[current_chip.name] = current_chip.num_nand_gates
-            overall_nand_consumption += current_chip.num_nand_gates
-            chips_with_nand_count.append(current_chip)
+            chips_with_count.append(current_chip)
         else:
             frontier.put(current_chip)
-            print(current_chip);
 
-    for chip in uncompleted_chips:
+    for chip in chips_with_count:
+        if chip.num_nand_gates == 0:
+            chip.num_nand_gates = "Incomplete"
         print(chip)
-
-    for chip in chips_with_nand_count:
-        print(chip)
-
-    print(f"Implementation uses {overall_nand_consumption} Nand chips\n")
-
-
 
 if __name__ == '__main__':
     main()
