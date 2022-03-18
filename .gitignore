@@ -11,3 +11,6 @@
 
 # Ignore tools
 tools/
+
+# Ignore .hack files in project 6
+projects/06/*/**.hack
