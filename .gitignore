@@ -5,8 +5,9 @@
 **/Hardware*
 *.out
 
-# venv
-venv/
+# Python
+**/venv/
+**/__pycache__/
 
 # Ignore tools
 tools/
