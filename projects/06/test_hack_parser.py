@@ -52,6 +52,23 @@ class TestParser:
         p.get_instruction()
         assert (p.instruction == "D=A+M")
 
+    def test_set_instruction_type(self):
+        p = Parser("@R1")
+        p.set_instruction_type()
+        assert (p.instruction_type == "A_INSTRUCTION")
+
+        p = Parser("(LOOP)")
+        p.set_instruction_type()
+        assert (p.instruction_type == "L_INSTRUCTION")
+
+        p = Parser("M=D+1")
+        p.set_instruction_type()
+        assert (p.instruction_type == "C_INSTRUCTION")
+
+        p = Parser("D+1;JLT")
+        p.set_instruction_type()
+        assert (p.instruction_type == "C_INSTRUCTION")
+
     def test_get_a_symbol(self):
         p = Parser("@R1")
         assert (p.get_a_symbol() == "R1")

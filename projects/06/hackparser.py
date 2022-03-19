@@ -28,10 +28,10 @@ class Parser():
 
     def set_instruction_type(self):
         """Sets the type of instruction within the Parser object"""
-        if self.instruction[0] == "(":
-            self.instruction_type = "L_INSTRUCTION"
-        elif self.instruction[0] == "@":
+        if self.instruction[0] == "@":
             self.instruction_type = "A_INSTRUCTION"
+        elif self.instruction[0] == "(":
+            self.instruction_type = "L_INSTRUCTION"
         else:
             self.instruction_type = "C_INSTRUCTION"
 
