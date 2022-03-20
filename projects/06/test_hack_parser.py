@@ -22,22 +22,22 @@ class TestParser:
 
     def test_instruction_is_command(self):
         p = Parser("@R1")
-        assert (p.instruction_is_command() is True)
+        assert (p.instruction_is_command())
 
         p = Parser("D=A+M")
-        assert (p.instruction_is_command() is True)
+        assert (p.instruction_is_command())
 
         p = Parser("(LOOP)")
-        assert (p.instruction_is_command() is True)
+        assert (p.instruction_is_command())
 
         p = Parser("(LOOP) // Comment")
-        assert (p.instruction_is_command() is True)
+        assert (p.instruction_is_command())
 
         p = Parser("// Comment")
-        assert (p.instruction_is_command() is False)
+        assert (not p.instruction_is_command())
 
         p = Parser("")
-        assert (p.instruction_is_command() is False)
+        assert (not p.instruction_is_command())
 
     def test_get_instruction(self):
         p = Parser("@R1")
