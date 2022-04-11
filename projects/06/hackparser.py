@@ -47,8 +47,6 @@ class Parser():
         """Returns the dest part of the command"""
         if "=" in self.instruction:
             return self.instruction.split("=")[0]
-        if ";" in self.instruction:
-            return self.instruction.split(";")[0]
         return ""
 
     def get_comp(self):

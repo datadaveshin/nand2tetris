@@ -28,5 +28,14 @@ class TestAssembler:
         assert (not asmb.filename_valid(".asm"))
 
     def test_main(self):
-        os.system("assembler.py Add/add.asm")
-        assert (filecmp.cmp("Add/add.hack", "my_Add.cmp"))
+        os.system("./assembler.py add/Add.asm")
+        assert (filecmp.cmp("add/Add.cmp", "add/Add.hack"))
+
+        os.system("./assembler.py max/MaxL.asm")
+        assert (filecmp.cmp("max/MaxL.cmp", "max/MaxL.hack"))
+
+        os.system("./assembler.py rect/RectL.asm")
+        assert (filecmp.cmp("rect/RectL.cmp", "rect/RectL.hack"))
+
+        os.system("./assembler.py pong/PongL.asm")
+        assert (filecmp.cmp("pong/PongL.cmp", "pong/PongL.hack"))

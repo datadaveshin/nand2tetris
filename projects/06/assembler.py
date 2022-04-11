@@ -3,8 +3,8 @@
 """Parser for the Hack Programming Assembler"""
 
 import sys
-import codecs
 from hackparser import Parser
+from codetranslator import Code
 
 def filename_valid(fname):
     """Checks if file extension is asm"""
@@ -26,12 +26,12 @@ def main():
         output_filename = f"{input_filename.split('.')[0]}.hack"
 
         try:
-            infile = codecs.open(input_filename, "r", "utf-8-sig")
+            infile = open(input_filename, "r")
         except FileNotFoundError:
             print("File not found")
         else:
-            outfile = codecs.open(f"{output_filename}", "w", "utf-8-sig")
-            outfile = codecs.open(f"{output_filename}", "a", "utf-8-sig")
+            outfile = open(f"{output_filename}", "w")
+            outfile = open(f"{output_filename}", "a")
 
             line_counter = 0
             line = infile.readline()
@@ -44,19 +44,28 @@ def main():
 
                     if parser.instruction_type == "A_INSTRUCTION":
                         instruction = parser.get_a_symbol()
+                        code = Code(instruction)
+                        instruction = code.translate_a_or_l_instruction()
                         line_counter += 1
 
                     elif parser.instruction_type == "L_INSTRUCTION":
                         instruction = parser.get_l_symbol()
+                        code = Code(instruction)
+                        instruction = code.translate_a_or_l_instruction()
 
                     elif parser.instruction_type == "C_INSTRUCTION":
                         dest = parser.get_dest()
-                        comp = parser.get_comp()
+                        dest = Code(dest)
+                        dest = dest.translate_dest()
                         jump = parser.get_jump()
-                        instruction = f"{dest}  {comp}  {jump}"
+                        jump = Code(jump)
+                        jump = jump.translate_jump()
+                        comp = parser.get_comp()
+                        comp = Code(comp)
+                        comp = comp.translate_comp()
+                        instruction = code.concatenate_c_instruction(comp, dest, jump)
                         line_counter += 1
 
-                    print(instruction)
                     outfile.write(f"{instruction}\n")
                 line = infile.readline()
 

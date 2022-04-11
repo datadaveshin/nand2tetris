@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
+"""Has tables and a Symbol class for the code translator"""
 
 DEST_TABLE = {
     "null": "000",
@@ -24,10 +25,11 @@ JUMP_TABLE = {
     "null": "000",
     "JGT": "001",
     "JEQ": "010",
+    "JGE": "011",
     "JLT": "100",
     "JNE": "101",
     "JLE": "110",
-    "JMP": "111"
+    "JMP": "111",
 }
 
 COMP_TABLE = {
@@ -72,5 +74,6 @@ COMP_TABLE = {
 
 
 class Symbols():
+    """Will be a class to deal with Symbols"""
     def __init__(self, symbol_table):
         self.symbol_table = {}
