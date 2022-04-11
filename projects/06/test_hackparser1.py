@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
-"""Unit test specs for hackparser.py"""
-from hackparser import Parser
+"""Unit test specs for parser1.py"""
+from parser1 import Parser
 
 
 def test_truthy():
@@ -9,7 +9,7 @@ def test_truthy():
     assert 1 + 1 == 2
 
 class TestParser:
-    """Tests for the hackparser"""
+    """Test specs for the Parser class"""
     def test_remove_leading_trailing_white_space(self):
         parser = Parser("  hello  ")
         parser.remove_leading_trailing_white_space()

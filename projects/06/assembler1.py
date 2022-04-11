@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
-"""Parser for the Hack Programming Assembler"""
+"""
+Assembler for the Hack Programming Assembler
+This first assembler does not account for symbols
+"""
 
 import sys
-from hackparser import Parser
-from codetranslator import Code
+from parser1 import Parser
+from codetranslator1 import Code
 
 def filename_valid(fname):
     """Checks if file extension is asm"""

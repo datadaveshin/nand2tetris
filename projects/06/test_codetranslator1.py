@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 """Unit test specs for codetranslator.py"""
-from codetranslator import Code
+from codetranslator1 import Code
 
 def test_truthy():
     """Test a truthy case"""

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
-"""Has tables and a Symbol class for the code translator"""
+"""
+Has tables and a Symbol class for the code translator
+This first table module does not account for symbols
+"""
 
 DEST_TABLE = {
     "null": "000",

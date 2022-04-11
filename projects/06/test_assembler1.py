@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Unit test specs for assembler.py"""
+"""Unit test specs for assembler1.py"""
 import os
 import filecmp
-import assembler as asmb
+import assembler1 as asmb
 
 
 def test_truthy():

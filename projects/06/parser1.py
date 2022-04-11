@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Parses an array containing instructions for the Assembler
+Parser for the Hack Assembler
+This first parser does not account for symbols
 """
 
 class Parser():

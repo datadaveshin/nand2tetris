@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
-"""Translates symbolic code to binary code"""
-from tables import DEST_TABLE, JUMP_TABLE, COMP_TABLE
+"""
+Code translator for the Hack Assembler
+This first code translator does not account for symbols
+"""
+from tables1 import DEST_TABLE, JUMP_TABLE, COMP_TABLE
 
 BITS = 16
 
 class Code():
-    """docstring for Code Translator."""
+    """Code translator class"""
 
     def __init__(self, instruction):
         self.instruction = instruction
