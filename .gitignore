@@ -5,8 +5,12 @@
 **/Hardware*
 *.out
 
-# venv
-venv/
+# Python
+**/venv/
+**/__pycache__/
 
 # Ignore tools
 tools/
+
+# Ignore .hack files in project 6
+projects/06/*/**.hack
