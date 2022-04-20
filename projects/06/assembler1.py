@@ -9,12 +9,14 @@ import sys
 from parser1 import Parser
 from codetranslator1 import Code
 
-def filename_valid(fname):
+def filename_valid(fname) -> bool:
     """Checks if file extension is asm"""
     split_filename = fname.split('.')
+
     has_min_two_parts = len(split_filename) >= 2
     basename_has_min_one_char = len(split_filename[0]) >= 1
     ends_in_asm = split_filename[-1] == 'asm'
+
     return has_min_two_parts and basename_has_min_one_char and ends_in_asm
 
 def filename_given(args_list):

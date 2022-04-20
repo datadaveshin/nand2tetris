@@ -12,10 +12,6 @@ def test_truthy():
 class TestAssembler:
     """Tests for the assembler"""
 
-    def test_filename_given(self):
-        assert (asmb.filename_given(['./assembler.py', 'add/Add.asm']))
-        assert (not asmb.filename_given(['./assembler.py']))
-
     def test_filename_valid(self):
         """Checks if file extension is asm"""
         assert (asmb.filename_valid("file.asm"))
@@ -26,6 +22,10 @@ class TestAssembler:
         assert (not asmb.filename_valid("asm"))
         assert (not asmb.filename_valid("file."))
         assert (not asmb.filename_valid(".asm"))
+
+    def test_filename_given(self):
+        assert (asmb.filename_given(['./assembler.py', 'add/Add.asm']))
+        assert (not asmb.filename_given(['./assembler.py']))
 
     def test_main(self):
         os.system("./assembler.py add/Add.asm")
